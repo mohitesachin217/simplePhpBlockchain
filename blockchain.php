@@ -158,6 +158,9 @@
 			if(block_no > 1){
 				var prev_block_no = block_no-1;
 			}
+
+			var next_vhash = block_no+1;
+			var nvstr =".vhash"+ next_vhash ;
 			// var vstr =".vhash"+ block_no ;
 			var prev_hash = $(".hash"+ prev_block_no ).text();
 			// var str = block_no + nounce + data;
@@ -171,7 +174,9 @@
 						
 					// alert(str);
 					$(str).text(data.hash);
+					$(nvstr).text(data.hash);
 					$(vstr).text(data.prev_hash);
+
 					$("#nounce" + block_no).val(data.nounce);
 					console.log(data);
 				}
@@ -192,11 +197,13 @@
 			var nounce = $('#nounce' + i).val();
 			var data = $('#data' + i).val();
 			var current_hash = $('.hash' + i).text();
+			var prev_hash = $('.vhash' + i).text();
 			blockchain.push({
 				"block_no" : block_no,
 				"nounce" : nounce,
 				"data" : data,
 				"current_hash" : current_hash,
+				'prev_hash' : prev_hash,
 			}); 
 			i++;
 		}
@@ -207,11 +214,13 @@
 			method:"POST",
 			data:{info:info},
 			success:function(data){
-				if($('.hash' + count).text() == data){
+				console.log(data);
+
+				/* if($('.hash' + count).text() == data){
 					alert('blockchain is valid');
 				}else{
 					alert('blockchain is not valid');
-				}
+				}/*/
 			}
 		})
 		
