@@ -1,112 +1,129 @@
 <!-- <link rel='stylesheet' href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/> -->
 <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> -->
 <script src="jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <style>
-	input,textarea{
-		line-height:60px;
-		height:60px;
-		width :100%;
-		font-size:40px;
-	}
+ 
 	table{
 		width:25%;
 		border:1px solid #ccc;
 		float:left;
-		margin:5px;
+		margin:10px;
 	}
 	td{
 		border:1px solid #ccc;
 	}
-	.hash{
-		background:yellow;
-		font-size:10px;
+	.hash_container{
+		background:#ccc;
+		font-size:12px;
+		text-align:center;
+	}
+	.blockchain-wrapper{
+		width:100%;
+	}
+	.mine{
+		color:black;
+	}
+	#validate{
+		font-size:30px;
+		color:black;
 	}
 </style>
-<input type="button" id="validate"  value="validate blockchain" data-count="3"  />
-	<table>
-		<thead></thead>
-		<tbody>
-			<tr>
-				<td>Block</td>
-				<td><input type="text" class="input" name="block_no" id='block_no1' value="1"  data-id="1"/></td>
-			</tr>
-			<tr>
-				<td>Nounce</td>
-				<td><input type="text" class="input" name="nounce" id="nounce1" data-id="1"/></td>
-			</tr>
-			<tr>
-				<td>Data</td>
-				<td><textarea type="text" class="input" name="data" id="data1" data-id="1"/></textarea>
-			</tr>
-			<tr>
-				
-				<td class="hash1 hash_container" colspan="2" ><input type="text" id="hash" value="" /></span></td>
-			</tr>
-			<tr>
-				<td class="vhash1 hash_container" colspan="2" ><input type="text" id="vhash"  value="" /></span></td>
-			</tr>
-			<td>
-				<input type="button" value="Mine" class="mine " data-block-id="1"/>
-			</td>
-		</tbody>
-	</table>
-
-
-	<table>
-		<thead></thead>
-		<tbody>
-			<tr>
-				<td>Block</td>
-				<td><input type="text" class="input" name="block_no" id='block_no2' value="2" data-id="2" /></td>
-			</tr>
-			<tr>
-				<td>Nounce</td>
-				<td><input type="text" class="input" name="nounce" id="nounce2" data-id="2" /></td>
-			</tr>
-			<tr>
-				<td>Data</td>
-				<td><textarea type="text" class="input" name="data" id="data2" data-id="2" /></textarea>
-			</tr>
-			<tr>
-				
-				<td class="hash2 hash_container" colspan="2" ><input type="text" id="hash"  value="" /></span></td>
-			</tr>
-			<tr>
-				<td class="vhash2 hash_container" colspan="2" ><input type="text" id="vhash"  value="" /></span></td>
-			</tr>
-			<td>
-				<input type="button" value="Mine" class="mine "  data-block-id="2"/>
-			</td>
-		</tbody>
-	</table>
-
-	<table>
-		<thead></thead>
-		<tbody>
-			<tr>
-				<td>Block</td>
-				<td><input type="text" class="input" name="block_no" id='block_no3' value="3" data-id="3" /></td>
-			</tr>
-			<tr>
-				<td>Nounce</td>
-				<td><input type="text" class="input" name="nounce" id="nounce3" data-id="3" /></td>
-			</tr>
-			<tr>
-				<td>Data</td>
-				<td><textarea type="text" class="input" name="data" id="data3" data-id="3" /></textarea>
-			</tr>
-			<tr>
-				<td class="hash3 hash_container" colspan="2" ><input type="text" id="hash"  value="" /></span></td>
-			</tr>
-			<tr>
-				<td class="vhash3 hash_container" colspan="2" ><input type="text" id="vhash"  value="" /></span></td>
-			</tr>
-			<td>
-				<input type="button" value="Mine" class="mine "  data-block-id="3"/>
-			</td>
-		</tbody>
-	</table>
-
+<center><input type="button" id="validate"  value="validate blockchain" data-count="3"  /></center>
+	
+<div class="blockchain-wrapper">
+	<div class="row">
+		<div class="col-md-4">
+			<table class="table">
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td>Block</td>
+						<td><input type="text" class="input form-control" name="block_no" id='block_no1' value="1"  data-id="1"/></td>
+					</tr>
+					<tr>
+						<td>Nounce</td>
+						<td><input type="text" class="input  form-control" name="nounce" id="nounce1" data-id="1"/></td>
+					</tr>
+					<tr>
+						<td>Data</td>
+						<td><textarea rows="10" cols="40" type="text" class="form-control" name="data" id="data1" data-id="1"/></textarea></td>
+					</tr>
+					<tr>
+						
+						<td class="hash1 hash_container" colspan="2" > </span></td>
+					</tr>
+					<tr>
+						<td class="vhash1 hash_container" colspan="2" > </span></td>
+					</tr>
+					<td colspan="2" align="center">
+						<input type="button" value="Mine" class="mine " data-block-id="1"/>
+					</td>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<table class="table">
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td>Block</td>
+						<td><input type="text" class="input form-control" name="block_no" id='block_no2' value="2" data-id="2" /></td>
+					</tr>
+					<tr>
+						<td>Nounce</td>
+						<td><input type="text" class="input form-control" name="nounce" id="nounce2" data-id="2" /></td>
+					</tr>
+					<tr>
+						<td>Data</td>
+						<td><textarea type="text" rows="10" cols="40" class="form-control" name="data" id="data2" data-id="2" /></textarea></td>
+					</tr>
+					<tr>
+						
+						<td class="hash2 hash_container" colspan="2" > </span></td>
+					</tr>
+					<tr>
+						<td class="vhash2 hash_container" colspan="2" > </span></td>
+					</tr>
+					<td colspan="2" align="center">
+						<input type="button" value="Mine" class="mine "  data-block-id="2"/>
+					</td>
+				</tbody>
+			</table>
+		 </div>
+		<div class="col-md-4">
+			<table class="table">
+				<thead></thead>
+				<tbody>
+					<tr>
+						<td>Block</td>
+						<td><input type="text" class="input form-control" name="block_no" id='block_no3' value="3" data-id="3" /></td>
+					</tr>
+					<tr>
+						<td>Nounce</td>
+						<td><input type="text" class="input form-control" name="nounce" id="nounce3" data-id="3" /></td>
+					</tr>
+					<tr>
+						<td>Data</td>
+						<td><textarea  rows="10" cols="40" class="form-control"  name="data" id="data3" data-id="3" /></textarea></td>
+					</tr>
+					<tr>
+						<td class="hash3 hash_container" colspan="2" > </span></td>
+					</tr>
+					<tr>
+						<td class="vhash3 hash_container" colspan="2" > </span></td>
+					</tr>
+					<td colspan="2" align="center">
+						<input type="button" value="Mine" class="mine "  data-block-id="3"/>
+					</td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
 <script >
 	$(document).ready(function(){
 		$(".input").on("keyup",function(){
